@@ -1,5 +1,5 @@
-// Package main allows to perform arithmetic operations with decimal numbers
-package main
+// Package decimal allows to perform arithmetic operations with decimal numbers
+package decimal
 
 import (
 	"fmt"
@@ -28,6 +28,11 @@ func (d *Decimal) String() string {
 }
 
 // NewDecimal creates a new Decimal struct by precision and scale numbers
+// The precision stores for an exact value,
+// and the scale represents the number of digits that should be stored following the decimal point.
+//
+// For example, number -123.45. The precision is -12345, and scale is 2.
+// So, the definition of this decimal number is going to be NewDecimal(-12345, 2)
 func NewDecimal(precision int, scale int) *Decimal {
 	return &Decimal{precision: precision, scale: scale}
 }
