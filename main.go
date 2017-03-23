@@ -33,7 +33,11 @@ func (d *Decimal) String() string {
 //
 // For example, number -123.45. The precision is -12345, and scale is 2.
 // So, the definition of this decimal number is going to be NewDecimal(-12345, 2)
+// Note: Any negative scale will be transform to a positive value
 func NewDecimal(precision int, scale int) *Decimal {
+	if scale < 0 {
+		scale = -scale
+	}
 	return &Decimal{precision: precision, scale: scale}
 }
 
